@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="js/11reactionwater.js" ></script>
+    <title>Ch11 Reaction With Water</title>
+
+    <meta charset="UTF-8" />
+    <meta name="copyright" content="&copy; 2018 Oscar Mui" />
+
+    <meta name="viewport" content="width=320, initial-scale=1" />
+    <link rel="stylesheet" href="css/all.css" media="only screen and (min-device-width:481px)"/>
+    <link rel="stylesheet" href="css/all_mobile.css" media="screen and (max-device-width:480px)"/>
+    <link rel="stylesheet" href="css/auto_quiz.css" media="only screen and (min-device-width:481px)"/>
+    <link rel="stylesheet" href="css/auto_quiz_mobile.css" media="screen and (max-device-width:480px)"/>
+
+    <style>
+        body{
+            background-color:#9FF;
+        }
+        a{
+            color:#0000FF;
+            text-decoration: none;
+        }
+        #top_div{
+            background-color:#555;
+            color:#FFF;
+        }
+        #status_div{
+            background-color:#555;
+            color:#FFF;
+        }
+        table{
+            table-layout: fixed;
+        }
+        p:empty{
+            display:none;
+        }
+    </style>
+</head>
+<body onload="start()">
+    <a href="index.html">Back to homepage</a>
+
+    <div id="top_div">
+        <h4 id="html_score">Score: </h4>
+        <h4 id="html_iscorrect">Quiz starts!</h4>
+        <h4 style="color:#FF6">Pay attention: This quiz is relatively new, errors may occur and the answers may not be accurate. Contact me if you spot a mistake.</h4>
+    </div>
+
+    <h3 id="html_question"></h3>
+    <div><p style="display: inline-block;">This metal &nbsp;</p><select id="html_input0" style="display: inline-block;" onchange="majoronchange()"><option>reacts with both cold water and steam</option><option>reacts with steam</option><option>does not react with water</option></select></div>
+    <p id="html_iscorrect0"></p>
+    <p id="html_correct0"></p>
+
+    <div id="group_minor_answers">
+        <h4 id="html_question_description">If the metal reacts with cold water...</h4>
+        <div><p style="display: inline-block;" >Name of product: &nbsp;</p><input id="html_input1" style="display: inline-block;" /></div>
+        <p id="html_iscorrect1" ></p>
+        <p id="html_correct1" ></p>
+        <div><p style="display: inline-block;">Formula of product: &nbsp;</p><input id="html_input2" style="display: inline-block;"/></div>
+        <p id="html_iscorrect2" ></p>
+        <p id="html_correct2" ></p>
+        <div><p style="display: inline-block;">Observable changes: &nbsp;</p><textarea id="html_input3" cols="40" rows="7" style="display: inline-block;" ></textarea></div>
+        <p id="html_correct3" ></p>
+        <div><select id="html_check3" style="display: inline-block;" ><option>0 marks</option><option id="html_option_m1">1 mark</option><option id="html_option_m2">2 marks</option><option id="html_option_m3">3 marks</option><option id="html_option_m4">4 marks</option><option>5 marks</option></select><p style="display: inline-block;"> &nbsp; out of 5 marks</p><br /></div>
+    </div>
+
+
+    <br />
+    <button id="html_check" onclick="check()">Check answers</button>
+    <button id="html_next" onclick="next()" style="display:none;">next</button>
+    <div id="status_div">
+        <h5>Instructions: After the mentioned metal reacted with water, write down the chemical name and formula of the product and state its observable change.</h5>
+        <h5>Mark the third blank yourself.</h5>
+        <h5>e.g.: Question: Zinc --> Answer: Reacts with steam, Zinc Oxide, ZnO, Zinc ... when steam passes through, ... forms</h5>
+    </div>
+</body>
+</html>
+
+
+

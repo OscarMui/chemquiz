@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+    <script type="text/javascript" src="js/poly.js" ></script>
+
+    <title>Chemistry Quiz</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=320, initial-scale=1" />
+    <link rel="stylesheet" href="css/general.css" media="only screen and (min-device-width:481px)"/>
+    <link rel="stylesheet" href="css/general mobile.css" media="screen and (max-device-width:480px)"/>
+    <style>
+        body{
+            background-color:#99FFFF;
+        }
+    </style>
+</head>
+<body onload="startpolyformula()">
+    <a href="old_index.html">Back to homepage</a>
+    <div id="status_div">
+        <h4 id="status">Status: 0 out of 0 correct</h4>
+        <h4 id="instant">Quiz Starts</h4>
+        <p>First blank type in formula, second blank type in charge. <br /> EG First blank: SO4, Second blank: 2-</p>
+    </div>
+    <p id="question"></p>
+    <input id="answer1" />
+    <input id="answer2" />
+    <button onclick="allpolyformula()">next</button>
+</body>
+</html>
+

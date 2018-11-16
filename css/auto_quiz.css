@@ -1,0 +1,21 @@
+#top_div h4{
+    margin: 12px 12px 12px 12px; 
+    padding: 20px 12px 20px 12px;
+}
+#status_div{
+    margin: 12px 0px 12px 0px;
+    padding: 20px 12px 20px 12px;
+}
+table{
+    width: 80%;
+    border-collapse: collapse;
+}
+td{
+    border: 1px solid #FFFFFF;
+}
+tr{
+    height:35px;
+}
+body{
+    margin: 12px 12px 12px 12px;
+}

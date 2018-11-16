@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+    <script type="text/javascript" src="js/ionicbond.js" ></script>
+
+    <title>Chemistry Quiz</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=320, initial-scale=1" />
+    <link rel="stylesheet" href="css/general.css" media="only screen and (min-device-width:481px)"/>
+    <link rel="stylesheet" href="css/general mobile.css" media="screen and (max-device-width:480px)"/>
+    <style>
+        body{
+            background-color:#FF9933;
+        }
+    </style>
+</head>
+<body onload="startionicbondmain()">
+    <a href="old_index.html">Back to homepage</a>
+    <div id="status_div">
+        <h4 id="status">Status: 0 out of 0 correct</h4>
+        <h4 id="instant">Quiz Starts</h4>
+        <p>First blank type in name, second blank type in formula. <br /> EG Question:Al 3+ and OH -, First blank: Aluminium hydroxide, Second blank: Al(OH)3<br />Brackets and roman numerals for transition metals (EG Chromium (III)) have to be included. As these compounds are randomly generated, some compounds may not exist, sorry for any inconvenience caused. </p>
+    </div>
+    <p id="question"></p>
+    <p>Name: <input id="answer1" /></p>
+    <p>Formula: <input id="answer2" /></p>
+    <button onclick="allionicbondmain()">next</button>
+</body>
+</html>
+
+

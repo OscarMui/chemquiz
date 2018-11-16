@@ -1,0 +1,21 @@
+body{
+    line-height:150%;
+    font-family:Arial;
+}
+
+h5{
+    text-decoration: none;
+    line-height:50%;
+}
+a{
+    color:#0000FF;
+    text-decoration: none;
+}
+input{
+    width: 40%;
+}
+#status_div{
+    background-color:#505050;
+    color:#ffffff;
+}
+

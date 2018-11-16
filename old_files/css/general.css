@@ -1,0 +1,33 @@
+body{
+    line-height:150%;
+    font-family:Arial;
+}
+p,a,li,input,button{
+    font-size:24px;
+}
+
+h1{
+    font-size:48px;
+}
+h2{
+    font-size:36px;
+}
+h3{
+    font-size:28px;
+}
+h4{
+    font-size:24px;
+}
+h5{
+    font-size:20px;
+    text-decoration: none;
+    line-height:50%;
+}
+a{
+    color:#0000FF;
+    text-decoration: none;
+}
+#status_div{
+    background-color:#505050;
+    color:#ffffff;
+}

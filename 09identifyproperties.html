@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="js/09identifyproperties.js" ></script>
+    <title>Ch9 Structure and Properties</title>
+
+    <meta charset="UTF-8" />
+    <meta name="copyright" content="&copy; 2018 Oscar Mui" />
+
+    <meta name="viewport" content="width=320, initial-scale=1" />
+    <link rel="stylesheet" href="css/all.css" media="only screen and (min-device-width:481px)"/>
+    <link rel="stylesheet" href="css/all_mobile.css" media="screen and (max-device-width:480px)"/>
+    <link rel="stylesheet" href="css/auto_quiz.css" media="only screen and (min-device-width:481px)"/>
+    <link rel="stylesheet" href="css/auto_quiz_mobile.css" media="screen and (max-device-width:480px)"/>
+    
+    <style>
+        body{
+            background-color:#F9C;
+        }
+        a{
+            color:#0000FF;
+            text-decoration: none;
+        }
+        #top_div{
+            background-color:#555;
+            color:#FFF;
+        }
+        #status_div{
+            background-color:#555;
+            color:#FFF;
+        }
+        table{
+            table-layout: fixed;
+        }
+        #group_input select{
+            line-height: 65%;
+        }
+        #group_input input,p,select{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body onload="start()">
+    <a href="index.html">Back to homepage</a>
+
+    <div id="top_div">
+        <h4 id="html_score">Score: </h4>
+        <h4 id="html_iscorrect">Quiz starts!</h4>
+    </div>
+
+    <h3 id="html_quiz_ended"></h3>
+    <div id="group_input">
+        <p id="html_question0"></p>
+        <p id="html_question1"></p>
+        <input id="html_input_structure"/>
+        <p id="html_question2"></p>
+        <select id="html_input_hardness">
+            <option>HARDNESS</option>
+            <option>hard</option>
+            <option>soft</option>
+        </select>
+        <p id="html_question3"></p>
+        <select id="html_input_malleability">
+            <option>MALLEABILITY</option>
+            <option>malleable and ductile</option>
+            <option>brittle</option>
+        </select>
+        <p id="html_question4"></p>
+        <select id="html_input_mpbp">
+            <option>MPBP</option>
+            <option>high</option>
+            <option>low</option>
+        </select>
+        <p id="html_question5"></p>
+        <select id="html_input_elec_s">
+            <option>ELECTRICITRICAL CONDUCTIVITY (S)</option>
+            <option>conducts electricity</option>
+            <option>does not conduct electricity</option>
+        </select>
+        <p id="html_question6"></p>
+        <select id="html_input_elec_aq">
+            <option>ELECTRICITRICAL CONDUCTIVITY (AQ)</option>
+            <option>conducts electricity</option>
+            <option>does not conduct electricity</option>
+        </select>
+        <p id="html_question7"></p>
+        <select id="html_input_elec_l">
+            <option>ELECTRICITRICAL CONDUCTIVITY (L)</option>
+            <option>conducts electricity</option>
+            <option>does not conduct electricity</option>
+        </select>
+        <p id="html_question8"></p>
+        <select id="html_input_solubility_aq">
+            <option>SOLUBILITY (AQ)</option>
+            <option>soluble</option>
+            <option>insoluble</option>
+        </select>
+        <p id="html_question9"></p>
+        <select id="html_input_solubility_non_aq">
+            <option>SOLUBILITY (NON-AQ)</option>
+            <option>soluble</option>
+            <option>insoluble</option>
+        </select>
+        <p id="html_question10"></p>
+    </div>
+    <button id="html_next" onclick="next()">next</button>
+    
+    <div id="status_div">
+        <table>
+            <tr>
+                <td style="color:#FF6">To note:</td>
+                <td style="color:#FF6" colspan="3" id="html_to_note"></td>
+            </tr><tr>
+                <td>Correct Answer:</td>
+                <td colspan="3" id="html_correct"></td>
+            </tr><tr>
+                <td>Your Answer:</td>
+                <td colspan="3" id="html_your"></td>
+            </tr>
+        </table>
+        <h5>Instructions: Fill in the blanks</h5>
+    </div>
+
+</body>
+</html>
+
+
+

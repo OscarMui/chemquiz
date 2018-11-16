@@ -1,0 +1,11 @@
+#top_div{
+    margin: 7px 7px 7px 7px;
+    padding: 7px 7px 7px 7px;
+}
+#status_div{
+    margin: 7px 7px 7px 7px;
+    padding: 7px 7px 7px 7px;
+}
+table,td{
+    display:block;
+}

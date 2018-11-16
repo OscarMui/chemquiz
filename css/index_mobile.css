@@ -1,0 +1,19 @@
+#main{
+    margin: 20px 10px 20px 10px;
+    padding: 10px 10px 10px 10px;
+}
+td{
+    display:block;
+    word-wrap: break-word;
+}
+img{
+    width:90%;
+    margin: 20px 10px 20px 10px;
+    padding: 10px 10px 10px 10px;
+}
+td img{
+    text-align:center;
+}
+#contents li{
+    line-height:150%;
+}

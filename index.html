@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>DSE Chemistry Quiz</title>
+    <link rel="shortcut icon" type="image/png" href="res/htmlicon.png"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=320, initial-scale=1" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="description" content="A bunch of tests about Chemistry. Prepare for the coming exam!" />
+    <meta name="author" content="Oscar Mui"/>
+    <meta name="copyright" content="&copy; 2018 Oscar Mui" />
+
+    <script type="text/javascript" src="js/index.js"></script>
+    <link rel="stylesheet" href="css/all.css" media="only screen and (min-device-width:401px)"/>
+    <link rel="stylesheet" href="css/all_mobile.css" media="screen and (max-device-width:400px)"/>
+
+    <link rel="stylesheet" href="css/index.css" media="only screen and (min-device-width:776px)"/>
+    <link rel="stylesheet" href="css/index_mobile.css" media="screen and (max-device-width:775px)"/>
+    <style>
+        body{
+            background-color:#FFB266;
+            color: #000;
+        }
+        #main a{
+            color:#0000FF;
+            text-decoration: none;
+        }
+        #start_page a{
+            color:#FFF;
+        }
+        #end_page a{
+            color:#FFF;
+        }
+        h1,h2,h3{
+            font-family:"Comic Sans MS",Arial, Helvetica, sans-serif;
+        }
+        #title_body{
+            text-align: center;
+        }
+        #main{
+            background-color: #FFF;
+        }
+        #main ul{
+            line-height:200%;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="start_page">
+        <h1 id="title_body">DSE Chemistry Quiz</h1>
+        
+        <h3>Choose the topic you want to train and click 'GO'</h3>
+        <select id="html_indexnav">
+            <option>Select...</option>
+            <option>(Ch5) Elements and Periodic Table</option>
+            <option>(Ch7) Ionic Bond</option>
+            <option>(Ch9) Structure and Properties of Substances</option>
+            <option>(Ch11) Reactivity of Metals</option>
+        </select>
+        <button onclick="navigate()">GO</button>
+        <p><a href="tutorial.html" style="color:#090">New to chemquiz? Click here for an introduction.</a></p>
+        <p><a href="whatsnew.html">What's New?</a></p>
+        <p><a href="contact.html">Contact Me, Disclaimers, Copyright</a></p>
+        <h4 >Last update: 1 Nov 2018 </h4>
+    
+    </div>
+    <div id="main">
+        <p style="font-family:'Comic Sans MS',Arial, Helvetica, sans-serif;
+        text-align: center;">Click below to start a quiz</p>
+        <table>
+            <tr id="Ch5">
+                <td>
+                    <h4>(Ch5) Elements and Periodic Table</h4>
+                    <ul>
+                        <li><a href="05elementssymboltoname.html">Quiz: Symbol to Name</a></li>
+                        <li><a href="05elementsnametosymbol.html">Quiz: Name to Symbol</a></li>
+                        <li><a href="05elementschallenge.html">Quiz: Memory Challenge</a></li>
+                        <li><a href="res/05periodictablefull.png" target="_blank">Resource: Periodic Table</a></li>
+                        <li><a href="res/05periodictabledse.pdf" target="_blank">Resource: Periodic Table (DSE Version)</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=rz4Dd1I_fX0" target="_blank">Resource: Periodic Table Song</a></li>
+                    
+                    </ul>
+                </td>
+                <td><img src="res/05elements.png" /></td>
+            </tr><tr id="Ch7">
+                <td>
+                    <h4>(Ch7) Ionic Bond</h4>
+                    <ul>
+                        <li><a href="07ionsformulatoname.html">Quiz: Polyatomic Ions Formula to Name</a></li>
+                        <li><a href="07ionsnametoformula.html">Quiz: Polyatomic Ions Name to Formula</a></li>
+                        <li><a href="07ionscolor.html">Quiz: Colors of Ions</a></li>
+                        <li><a href="07ionicbond.html">Quiz: Forming Ionic Bond</a></li>
+                        <li><a href="old_files/old_index.html">Old quizzes</a></li>
+                        <li><a href="res/07ionslist.pdf" target="_blank">Resource: List of Ions</a></li>
+                        
+                    </ul>
+                </td>
+                <td><img src="res/07ionicbond.png" /></td>
+            </tr><tr id="Ch9">
+                <td>
+                    <h4>(Ch9) Structure and Properties of Substances</h4>
+                    <ul>
+                        <li><a href="09identifyproperties.html">Quiz: identify structure and properties</a></li>
+                        <li><a href="http://www2.hkedcity.net/sch_files/a/kst/kst-csh/public_html/structure.htm" target="_blank">Resource: Ch9 summary (Hong Kong Education City)</a></li>
+                    </ul>
+                    <br />
+                    <a href="#start_page">Back to top</a>
+                </td>
+                <td><img src="res/09diamond.png" /></td>
+            </tr><tr id="Ch11">
+                <td>
+                    <h4>(Ch11) Reactivity of Metals</h4>
+                    <ul>
+                        <li><a href="11reactivityseries.html">Quiz: Metal Reactivity Series (According to Crocodile)</a></li>
+                        <li><a href="11reactionair.html">Self-test: Reaction with air</a></li>
+                        <li><a href="11reactionwater.html">Self-test: Reaction with water</a></li>
+                        <li><a href="11reactionacid.html">Self-test: Reaction with dilute acids</a></li>
+                        <li><a href="res/11reactivitylist.pdf" target="_blank">Resource: Reaction with metals (Crocodile)</a></li>
+                        <li><a href="http://www2.hkedcity.net/sch_files/a/lsc/lsc-chem/public_html/nss/metal/reactivities.htm" target="_blank">Resource: Reaction width metals (Hong Kong Education City)</a></li>
+                    </ul>
+                </td>
+                <td><img src="res/11metals.png" /></td>
+            </tr>
+            
+        </table>
+    </div>
+
+    <div id="end_page">
+        <p>Hope this website helps! If you have any suggestions or spot some mistakes about my web, do not hesitate to <a href="contact.html">contact me</a>.</p>
+        <p><a href="#start_page">Back to top</a></p>
+        <p>&copy; 2018 Oscar Mui</p>
+    </div>
+</body>
+</html>
+
