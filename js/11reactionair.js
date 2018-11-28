@@ -15,9 +15,19 @@ let answers_1=[
     "potassium oxide","sodium oxide","calcium oxide","magnesium oxide","aluminium oxide","zinc oxide","iron (ii,iii) oxide","lead (ii) oxide","copper (ii) oxide","mercury (ii) oxide","N/A","N/A","N/A"
 ];//len=13
 
-let answers_2=[
-    "K2O","Na2O","CaO","MgO","Al2O3","ZnO","Fe3O4","PbO","CuO","HgO","N/A","N/A","N/A"
+//old answers_2: "K2O","Na2O","CaO","MgO","Al2O3","ZnO","Fe3O4","PbO","CuO","HgO","N/A","N/A","N/A"
+let answers_2_reactant1=[
+    "K(s)","Na(s)","Ca(s)","Mg(s)","Al(s)","Zn(s)","Fe(s)","Pb(s)","Cu(s)","Hg(s)","A","A","A"
 ];//len=13
+
+let answers_2_reactant2=[
+    "O2(g)","O2(g)","O2(g)","O2(g)","O2(g)","O2(g)","O2(g)","O2(g)","O2(g)","O2(g)","A","A","A"
+];//len=13
+
+let answers_2_product1=[
+    "K2O(s)","Na2O(s)","CaO(s)","MgO(s)","Al2O3(s)","ZnO(s)","Fe3O4(s)","PbO(s)","CuO(s)","HgO(s)","A","A","A"
+];//len=13
+
 let answers_3=[
     "burns vigorously with a lilac flame, a white smoke forms, a yellow powder forms","burns vigorously with a golden yellow flame, a white smoke forms, a white powder forms","burns quite vigorously with a brick-red flame, a white powder forms","burns with a very bright white light, a white powder forms","burns with white sparks, a white powder forms","a powder (yellow when hot, white when cold) forms ","iron powder burns with sparks, a black solid forms","a powder (orange when hot, yellow when cold) forms on the surface","a black powder forms on the surface","a red powder forms on the surface","N/A","N/A","N/A"
 ];//len=13
@@ -59,7 +69,6 @@ let html_your;
 let html_table_question;
 let html_next;
 let html_check;
-
 
 function next(){
     if(current_progress==-100){
@@ -152,21 +161,21 @@ function check(){
     html_input1.readOnly = true;
 
     //check input2
-    if(input2==answers_2[question_number]&&answers_2[question_number]!="N/A"){
+    if(input2==balancing_chemical_equations(answers_2_reactant1[question_number],answers_2_reactant2[question_number],"A",answers_2_product1[question_number],"A","A")&&answers_2_reactant1[question_number]!="A"){
         this_time_correct_answers+=2;
         html_input2.style.backgroundColor = "#0F0";
         html_iscorrect2.innerHTML = "You are correct.";
-        html_correct2.innerHTML = "Correct answer: " + answers_2[question_number];
-    }else if(input2==answers_alt_2[question_number]&&answers_alt_2[question_number]!="no_alt"){
+        html_correct2.innerHTML = "Correct answer: " + balancing_chemical_equations(answers_2_reactant1[question_number],answers_2_reactant2[question_number],"A",answers_2_product1[question_number],"A","A");
+    }else if(input2==balancing_chemical_equations(answers_2_reactant2[question_number],answers_2_reactant1[question_number],"A",answers_2_product1[question_number],"A","A")&&answers_2_reactant1[question_number]!="A"){
         this_time_correct_answers+=2;
         this_time_isalt_answers=true;
         html_input2.style.backgroundColor = "#0F0";
         html_iscorrect2.innerHTML = "You are correct. (Alternative answer accepted)";
-        html_correct2.innerHTML = "Correct answer: " + answers_2[question_number];
+        html_correct2.innerHTML = "Correct answer: " + balancing_chemical_equations(answers_2_reactant1[question_number],answers_2_reactant2[question_number],"A",answers_2_product1[question_number],"A","A");
     }else{
         html_input2.style.backgroundColor = "#F99";
         html_iscorrect2.innerHTML = "You are wrong.";
-        html_correct2.innerHTML = "Correct answer: " + answers_2[question_number];
+        html_correct2.innerHTML = "Correct answer: " + balancing_chemical_equations(answers_2_reactant1[question_number],answers_2_reactant2[question_number],"A",answers_2_product1[question_number],"A","A");
     }
     html_input2.readOnly = true;
 
@@ -269,4 +278,217 @@ function keydown(e){
             html_input3.focus();
         }
     }
+}
+class compoundInformation{
+    constructor(formula,coefficient){
+        this.coefficient = coefficient;//type: int
+        this.initFormula = formula;
+        this.elements = new Array(10); //type: string
+        //number of atoms for each element
+        this.numberOfAtoms = new Array(10); //type: int
+        //number of elements in the formula
+        this.elements_i = -1;
+        let isElementInBrackets = new Array(10); //local variable type:bool
+        let isBracketValid = false; //check if it is just state symbols
+        let isInBracket = false;
+        for(let i=0;i<10;i++){
+            this.elements[i]="";
+            this.numberOfAtoms[i]=1;
+            isElementInBrackets[i] = false;
+        }
+
+
+        for(let i=0;i<formula.length;i++){
+            console.log("TEMP FINAL: formula.charAt(0) " + formula.charAt(0));
+            if(i==0&&formula.charAt(0)=='A'&&formula.length==1){
+                return;
+            }else if(formula.charCodeAt(i)>=65&&formula.charCodeAt(i)<=90){//CAPITAL LETTERS
+                this.elements_i++;
+                this.elements[this.elements_i] += formula.charAt(i);
+                if(isInBracket&&isBracketValid){
+                    isElementInBrackets[this.elements_i]=true;
+                }
+            }else if(formula.charCodeAt(i)>=97&&formula.charCodeAt(i)<=122){//SMALL LETTERS
+                if((isInBracket&&isBracketValid)||!(isInBracket))
+                    this.elements[this.elements_i] += formula.charAt(i);
+            }else if(formula.charCodeAt(i)>=49&&formula.charCodeAt(i)<=57){//NUMBERS
+                this.numberOfAtoms[this.elements_i] = formula.charAt(i);
+            }else if(formula.charAt(i)=='('){
+                isInBracket=true;
+                if(formula.charCodeAt(i+1)>=65&&formula.charCodeAt(i+1)<=90){
+                    isBracketValid=true;
+                }else{
+                    isBracketValid=false;
+                }
+            }else if(formula.charAt(i)==')'){
+                for(let j=0;j<10;j++){
+                    if(isElementInBrackets[j]){
+                        if(formula.charCodeAt(i+1)>=49&&formula.charCodeAt(i+1)<=57&&formula.charCodeAt(i+2)>=48&&formula.charCodeAt(i+2)<=57){
+                            this.numberOfAtoms[j]*=formula.charAt(i+1)*10+formula.charAt(i+2)*1;
+                        }else if(formula.charCodeAt(i+1)>=49&&formula.charCodeAt(i+1)<=57){
+                            this.numberOfAtoms[j]*=formula.charAt(i+1)*1;
+                        }
+                    }
+                    isElementInBrackets[i] = false;
+                }
+                isInBracket=false;
+            }
+        }
+    }
+    getRealNumberOfAtoms(index_atom){
+        return this.coefficient*this.numberOfAtoms[index_atom];
+    }
+
+}
+
+
+
+//CHEMICAL EQUATIONS SERIES
+function elements_finder(target,information){
+    for(let i=0;i<=information.elements_i;i++){
+        if(information.elements[i]==target){
+            return i;
+        }
+    }
+    return -1; //return -1 if not found
+}
+function balancing_chemical_equations(reactantString1,reactantString2,reactantString3,productString1,productString2,productString3){
+    let reactantProduct = new Array(6);
+
+    reactantProduct[0] = new compoundInformation(reactantString1,1);
+    reactantProduct[1] = new compoundInformation(reactantString2,1);
+    reactantProduct[2] = new compoundInformation(reactantString3,1);
+    reactantProduct[3] = new compoundInformation(productString1,1);
+    reactantProduct[4] = new compoundInformation(productString2,1);
+    reactantProduct[5] = new compoundInformation(productString3,1);
+
+    console.log("INPUT: reactant 1: " + reactantProduct[0].elements_i); //Ca(s)
+    console.log("INPUT: reactant 1: " + reactantProduct[0].elements[0]); //Ca(s)
+    console.log("INPUT: reactant 2: " + reactantProduct[1].elements_i); //H2O(l)
+    console.log("INPUT: reactant 3: " + reactantProduct[2].elements_i); //A
+    console.log("INPUT: product 1: " + reactantProduct[3].elements_i); //Ca(OH)2(s)
+    console.log("INPUT: product 2: " + reactantProduct[4].elements_i); //H2(g)
+    console.log("INPUT: product 3: " + reactantProduct[5].elements_i); //A
+
+    let i=0;
+    let balanced_elements=0;
+    let total_elements = reactantProduct[0].elements_i+
+        reactantProduct[1].elements_i+
+        reactantProduct[2].elements_i+
+        reactantProduct[3].elements_i+
+        reactantProduct[4].elements_i+
+        reactantProduct[5].elements_i
+        +6;
+
+    while(balanced_elements<total_elements){
+        for(let j=0;j<3;j++){
+            for(let k=0;k<=reactantProduct[j].elements_i;k++){
+                console.log("reactantProduct[j].elements_i: " + reactantProduct[j].elements_i);
+                console.log("TEMP2: j"+j);
+                console.log("TEMP2: k"+k);
+                let target = reactantProduct[j].elements[k];
+                let reactantsInvolved_i = 0;
+                let productsInvolved_i = 0;
+                let reactantsInvolved = new Array(3);
+                let productsInvolved = new Array(3);
+                for(let l=0;l<6;l++){
+                    let results =  elements_finder(target,reactantProduct[l]);
+                    if(results!=-1){
+                        if(l<3){
+                            reactantsInvolved[reactantsInvolved_i] = [l,results];
+                            reactantsInvolved_i++;
+                        }else{
+                            productsInvolved[productsInvolved_i] = [l,results];
+                            productsInvolved_i++;
+                        }
+                    }
+                }
+                //check if the element is balanced
+                let rTotal = 0;
+                let pTotal = 0;
+                for(let l=0;l<reactantsInvolved_i;l++){
+                    rTotal+=reactantProduct[reactantsInvolved[l][0]].getRealNumberOfAtoms(reactantsInvolved[l][1]);
+                }
+                for(let l=0;l<productsInvolved_i;l++){
+                    pTotal+=reactantProduct[productsInvolved[l][0]].getRealNumberOfAtoms(productsInvolved[l][1]);
+                }
+
+                if(rTotal==pTotal){
+                    balanced_elements+=(reactantsInvolved_i+productsInvolved_i);
+                    console.log("MAIN: balanced_elements: " + balanced_elements);
+                }else if(reactantsInvolved_i*productsInvolved_i==0){ //not balanced equations will move down
+                    console.log("ERROR: balancing_chemical_equations: Zero atoms");
+                    return "ERROR: balancing_chemical_equations: Zero atoms";
+                }else if(reactantsInvolved_i==1&&productsInvolved_i==1){
+                    let r1 = reactantProduct[reactantsInvolved[0][0]].getRealNumberOfAtoms(reactantsInvolved[0][1]);
+                    let p1 = reactantProduct[productsInvolved[0][0]].getRealNumberOfAtoms(productsInvolved[0][1]);
+                    console.log("TEMP3: r1 raw " + r1);
+                    console.log("TEMP3: p1 raw " + p1);
+                    while(r1!=p1){
+                        if(r1<p1){
+                            r1 += reactantProduct[reactantsInvolved[0][0]].getRealNumberOfAtoms(reactantsInvolved[0][1]);
+                        }else{
+                            p1 += reactantProduct[productsInvolved[0][0]].getRealNumberOfAtoms(productsInvolved[0][1]);
+                        }
+                    }
+                    reactantProduct[reactantsInvolved[0][0]].coefficient *= r1/reactantProduct[reactantsInvolved[0][0]].getRealNumberOfAtoms(reactantsInvolved[0][1]);
+                    reactantProduct[productsInvolved[0][0]].coefficient *= r1/reactantProduct[productsInvolved[0][0]].getRealNumberOfAtoms(productsInvolved[0][1]);
+                    console.log("PROCESS 1_1: Reactant " + reactantProduct[reactantsInvolved[0][0]].coefficient);
+                    console.log("PROCESS 1_1: Product " + reactantProduct[productsInvolved[0][0]].coefficient);
+                    balanced_elements=0;
+                    i=0;
+                    j=-1;
+                    k=0;
+                    break;
+                }
+            }
+        }
+        if(i>=100){
+            console.log("ERROR: balancing_chemical_equations: Too complicated to solve");
+            return "ERROR: balancing_chemical_equations: Too complicated to solve";
+        }
+        i++;
+    }
+    console.log("BALANCED");
+
+    let finalEquation = "";
+
+    for(let i=0;i<6;i++){
+        if(!(reactantProduct[i].initFormula=="A")){
+            if(i==3){
+                finalEquation+="->";
+            }else if(i==0){
+
+            }else{
+                finalEquation+="+";
+            }
+            if(reactantProduct[i].coefficient>1) finalEquation += reactantProduct[i].coefficient;
+            finalEquation += reactantProduct[i].initFormula;
+        }
+
+    }
+    /*let finalEquation = new Array(36);
+
+    for(let h=0;h<36;h++){
+        finalEquation[h]="";
+        let permutation_string[36]="";
+
+        for(let i=0;i<3;i++){
+            if(!(reactantProduct[i].initFormula=="A")){
+                if(i==3){
+                    finalEquation+="->";
+                }else if(i==0){
+
+                }else{
+                    finalEquation+="+";
+                }
+                if(reactantProduct[i].coefficient>1) finalEquation += reactantProduct[i].coefficient;
+                finalEquation += reactantProduct[i].initFormula;
+            }
+
+        }
+    }*/
+
+    console.log("RESULT: " + finalEquation);
+    return finalEquation;
 }

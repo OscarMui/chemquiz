@@ -19,7 +19,7 @@ let answers_2=[
     "KOH","NaOH","Ca(OH)2","MgO","Al2O3","ZnO","Fe3O4","N/A","N/A","N/A","N/A","N/A","N/A"
 ];//len=13
 let answers_3=[
-    "Potassium dissolves in water, melts to form a silvery ball (1M) which moves rapidly on the water surface (1M), hissing sound (1M) and heat are produced (1M). Potassium burns with a lilac flame. (1M)","Sodium dissolves in water, melts to form a silvery ball (1M) which moves quickly on the water surface (1M), hissing sound (1M) and heat are produced (1M). It does not burn spontaneously, but a golden yellow flame is observed if it catches fire (1M).","Calcium sinks in water (1M), dissolves gradually (1M), colourless gas bubbles evolves (1M), milky solution is formed (1M), heat is produced (1M).","Magnesium burns with bright white light, a white powder remains","Aluminium reacts when the oxide layer is removed, a white power remains","Zinc glows when steam passes over, producing a yellow powder. The powdeer becomes white when it is left to cool.","Heat until it glows red before steam passes over, a black solid forms","N/A","N/A","N/A","N/A","N/A","N/A"
+    "Potassium dissolves in water, melts to form a silvery ball (1M) which moves rapidly on the water surface (1M), hissing sound (1M) and heat are produced (1M). Potassium burns with a lilac flame. (1M)","Sodium dissolves in water, melts to form a silvery ball (1M) which moves quickly on the water surface (1M), hissing sound (1M) and heat are produced (1M). It does not burn spontaneously, but a golden yellow flame is observed if it catches fire (1M).","Calcium sinks in water (1M), dissolves gradually (1M), colourless gas bubbles evolves (1M), milky solution is formed (1M), heat is produced (1M).","Magnesium burns with bright white light, a white powder remains","Aluminium reacts when the oxide layer is removed, a white power remains","Zinc glows when steam passes over, producing a yellow powder. The powder becomes white when it is left to cool.","Heat until it glows red before steam passes over, a black solid forms","N/A","N/A","N/A","N/A","N/A","N/A"
 ];//len=13
 let answers_alt_1=[
     "no_alt","no_alt","no_alt","no_alt","no_alt","no_alt","iron(ii,iii) oxide","N/A","N/A","N/A","N/A","N/A","N/A"
@@ -273,7 +273,7 @@ function majoronchange(){
         }else{
             html_question_description.innerHTML = "If the metal reacts with cold water...";
         }
-        
+
     }
 }
 function keydown(e){
