@@ -1,7 +1,7 @@
 //quick nav tools
 
 let options_to_chapters = [
-    "","#Ch5","#Ch7", "#Ch9", "#Ch11"
+    "","#Ch5","#Ch7", "#Ch9", "#Ch11","#Ch19"
 ];
 
 
