@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script type="text/javascript" src="js/05elementschallenge.js" ></script>
-    <title>Ch5 Elements Challenge</title>
-    
+    <script type="text/javascript" src="js/07nameionicbond.js" ></script>
+    <title>Ch7 Naming Ionic Bond</title>
+
     <link rel="shortcut icon" type="image/png" href="res/htmlicon.png"/>
     
     <meta charset="UTF-8" />
@@ -17,7 +17,7 @@
     
     <style>
         body{
-            background-color:#FF6;
+            background-color:#9F9;
         }
         a{
             color:#0000FF;
@@ -48,11 +48,11 @@
     <div id="top_div">
         <h4 id="html_score">Score: </h4>
         <h4 id="html_iscorrect">Quiz starts!</h4>
+        <h4 style="color:#FF6">Pay attention: This quiz is relatively new, errors may occur and the answers may not be accurate. Contact me if you spot a mistake.</h4>
     </div>
 
     <h3 id="html_question"></h3>
     <div id="group_input1"><p>Name: &nbsp;</p><input id="html_input1"/></div>
-    <div id="group_input1"><p>Symbol: &nbsp;</p><input id="html_input2"/></div>
     <button id="html_next" onclick="next()">next</button>
     
     <div id="status_div">
@@ -68,8 +68,11 @@
                 <td  colspan="3" id="html_your"></td>
             </tr>
         </table>
-        <h5>Instructions: Try to enter the details of all elements of the periodic table!!! (You can always quit if you feel bored...)</h5>
-        <h5>e.g. Question: 1 --> Answer: Hydrogen,H</h5>
+        <h5>Instructions: The chemical name of the ionic compound is given, you are required to write down its chemical name.<br />
+        Reminder: Roman numerals for transition metals are needed <br />
+        The ionic compounds in this test is generated randomly, it may not exist in the real world, sorry for any inconvenience for this may cause.<br />
+        EG Ca(OH)2 --> Calcium Hydroxide 
+        </h5>
     </div>
 
 </body>
