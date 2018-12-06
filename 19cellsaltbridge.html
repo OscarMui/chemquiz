@@ -1,1 +1,146 @@
-coming soon...
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="js/19cellsaltbridge.js" ></script>
+    <title>Ch19 Simple Chemical Cells</title>
+
+    <link rel="shortcut icon" type="image/png" href="res/htmlicon.png"/>
+    
+    <meta charset="UTF-8" />
+    <meta name="copyright" content="&copy; 2018 Oscar Mui" />
+
+    <meta name="viewport" content="width=320, initial-scale=1" />
+    <link rel="stylesheet" href="css/all.css" media="only screen and (min-device-width:481px)"/>
+    <link rel="stylesheet" href="css/all_mobile.css" media="screen and (max-device-width:480px)"/>
+    <link rel="stylesheet" href="css/auto_quiz.css" media="only screen and (min-device-width:481px)"/>
+    <link rel="stylesheet" href="css/auto_quiz_mobile.css" media="screen and (max-device-width:480px)"/>
+    
+    <style>
+        body{
+            background-color:#9F9;
+        }
+        a{
+            color:#0000FF;
+            text-decoration: none;
+        }
+        #top_div{
+            background-color:#555;
+            color:#FFF;
+        }
+        #status_div{
+            background-color:#555;
+            color:#FFF;
+        }
+        table{
+            table-layout: fixed;
+        }
+        #group_input select{
+            line-height: 65%;
+        }
+        #group_input input,p,select{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body onload="start()">
+    <a href="index.html">Back to homepage</a>
+
+    <div id="top_div">
+        <h4 id="html_score">Score: </h4>
+        <h4 id="html_iscorrect">Quiz starts!</h4>
+    </div>
+
+    <table>
+        <tr>
+            <td style="border:none"><img src="res/19cellsaltbridge.png"/></td>
+            <td style="border:none"><ul>
+                <li id="html_question_a"></li>
+                <li id="html_question_b"></li>
+                <li id="html_question_c"></li>
+                <li id="html_question_d"></li>
+                <li id="html_question_e"></li>
+            </ul></td>
+        </tr>
+    </table>
+    
+    <div id="group_input">
+        <p id="html_question0"></p>
+        <p id="html_question1"></p>
+        <select id="html_input_left_name">
+            <option>LEFT NAME</option>
+            <option>positive</option>
+            <option>negative</option>
+        </select>
+        <p id="html_question2"></p>
+        <p id="html_question3"></p>
+        <p id="html_question4"></p>
+        <select id="html_input_right_name">
+            <option>RIGHT NAME</option>
+            <option>positive</option>
+            <option>negative</option>
+        </select>
+        <p id="html_question5"></p>
+        <select id="html_input_electron_flow">
+            <option>ELECTRON FLOW</option>
+            <option>left to right</option>
+            <option>right to left</option>
+        </select>
+        <p id="html_question6"></p>
+        <select id="html_input_voltmeter">
+            <option>VOLTMETER READING</option>
+            <option>positive</option>
+            <option>negative</option>
+        </select>
+        <p id="html_question7"></p>
+        <p id="html_question8"></p>
+        <p id="html_question9"></p>
+        <select id="html_input_left_to_salt_bridge">
+            <option>LEFT ELECTRODE TO SALT BRIDGE</option>
+            <option>LEFT SOL +</option>
+            <option>LEFT SOL -</option>
+        </select>
+        <p id="html_question10"></p>
+        <select id="html_input_left_to_electrode">
+            <option>LEFT SALT BRIDGE TO ELECTRODE</option>
+            <option>BRIDGE SOL +</option>
+            <option>BRIDGE SOL -</option>
+        </select>
+        <p id="html_question11"></p>
+        <p id="html_question12"></p>
+        <p id="html_question13"></p>
+        <select id="html_input_right_to_salt_bridge">
+            <option>RIGHT ELECTRODE TO SALT BRIDGE</option>
+            <option>LEFT SOL +</option>
+            <option>LEFT SOL -</option>
+        </select>
+        <p id="html_question14"></p>
+        <select id="html_input_right_to_electrode">
+            <option>RIGHT SALT BRIDGE TO ELECTRODE</option>
+            <option>BRIDGE SOL +</option>
+            <option>BRIDGE SOL -</option>
+        </select>
+        <p id="html_question15"></p>
+    </div>
+    <button id="html_next" onclick="next()">next</button>
+    
+    <div id="status_div">
+        <table>
+            <tr>
+                <td>Question:</td>
+                <td colspan="3" id="html_to_note"></td>
+            </tr><tr>
+                <td>Correct Answer:</td>
+                <td colspan="3" id="html_correct"></td>
+            </tr><tr>
+                <td>Your Answer:</td>
+                <td colspan="3" id="html_your"></td>
+            </tr>
+        </table>
+        <h5>Instructions: Fill in the blanks according to the photograph.</h5>
+    </div>
+
+</body>
+</html>
+
+
+
