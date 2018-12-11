@@ -5,7 +5,7 @@
 //infinite questions
 
 let ecs=[
-    "Mg","Al","Zn","Fe","Cu","Ag","Au"    
+    "Mg","Al","Zn","Fe","Cu","Ag","Au"
 ];//len=7
 
 let electrolyte=[
@@ -24,12 +24,12 @@ let anion_need_brackets=[
     true,true,false
 ];
 
-let question0 = "Left electrode";//question0 = LEFT
+let question0 = "Left electrode";
 let question1 = " is the ";
-let question2 = " electrode. ";
-let question3 = "Right electrode";//question3 = RIGHT
-let question4 = " is the ";
-let question5 = " electrode. Electrons flow from ";
+let question2 = " electrode, or in other words, ";
+let question3 = " . Right electrode is the ";
+let question4 = " electrode, or in other words, ";
+let question5 = " . Electrons flow from ";
 let question6 = " through the external circuit. The voltmeter gives a ";
 let question7 = " reading. Salt bridge can complete the circuit and balance the charges. Mainly, on the ";
 let question8 = "left electrode";//question8 = LEFT + LEFT SOL
@@ -78,7 +78,9 @@ let html_question15;
 
 //input
 let html_input_left_name;
+let html_input_left_redox_name;
 let html_input_right_name;
+let html_input_right_redox_name;
 let html_input_electron_flow;
 let html_input_voltmeter;
 let html_input_left_to_salt_bridge;
@@ -124,7 +126,9 @@ function start(){
     html_question15 = document.getElementById("html_question15");
 
     html_input_left_name = document.getElementById("html_input_left_name"); //input
+    html_input_left_redox_name = document.getElementById("html_input_left_redox_name");
     html_input_right_name = document.getElementById("html_input_right_name");
+    html_input_right_redox_name = document.getElementById("html_input_right_redox_name");
     html_input_electron_flow = document.getElementById("html_input_electron_flow");
     html_input_voltmeter = document.getElementById("html_input_voltmeter");
     html_input_left_to_salt_bridge = document.getElementById("html_input_left_to_salt_bridge");
@@ -156,7 +160,9 @@ function check(){
     let correct_answer_string = "";
     let your_answer_string="";
     let correct_left_i;
+    let correct_left_redox_i;
     let correct_right_i;
+    let correct_right_redox_i;
     let correct_voltmeter_i;
     let correct_electron_flow_i;
     let correct_left_to_salt_bridge_i;
@@ -167,7 +173,9 @@ function check(){
     if(chosen_cation[0]<chosen_cation[2]){//the higher the index, the lower it is in the ecs
         //left more reactive than right
         correct_left_i=2;
+        correct_left_redox_i=2;
         correct_right_i=1;
+        correct_right_redox_i=1;
         correct_electron_flow_i=1;
         correct_voltmeter_i=2;
         correct_left_to_salt_bridge_i=1;
@@ -176,7 +184,9 @@ function check(){
         correct_right_to_electrode_i=1;
     }else{
         correct_left_i=1;
+        correct_left_redox_i=1;
         correct_right_i=2;
+        correct_right_redox_i=2;
         correct_electron_flow_i=2;
         correct_voltmeter_i=1;
         correct_left_to_salt_bridge_i=2;
@@ -184,12 +194,18 @@ function check(){
         correct_right_to_salt_bridge_i=1;
         correct_right_to_electrode_i=2;
     }
-    //(weight=0.1*2)
+    //(weight=0.1*4)
     if(html_input_left_name.selectedIndex==correct_left_i){
         this_time_correct_answers+=1;
     }else{
         correct_answer_string+=(html_input_left_name.options[0].value)+(": ")+(html_input_left_name.options[correct_left_i].value)+("<br />");
         your_answer_string+=(html_input_left_name.options[0].value)+(": ")+(html_input_left_name.value)+("<br />");
+    }
+    if(html_input_left_redox_name.selectedIndex==correct_left_redox_i){
+        this_time_correct_answers+=1;
+    }else{
+        correct_answer_string+=(html_input_left_redox_name.options[0].value)+(": ")+(html_input_left_redox_name.options[correct_left_redox_i].value)+("<br />");
+        your_answer_string+=(html_input_left_redox_name.options[0].value)+(": ")+(html_input_left_redox_name.value)+("<br />");
     }
     if(html_input_right_name.selectedIndex==correct_right_i){
         this_time_correct_answers+=1;
@@ -197,15 +213,21 @@ function check(){
         correct_answer_string+=(html_input_right_name.options[0].value)+(": ")+(html_input_right_name.options[correct_right_i].value)+("<br />");
         your_answer_string+=(html_input_right_name.options[0].value)+(": ")+(html_input_right_name.value)+("<br />");
     }
-    //(weight=0.2*2)
+    if(html_input_right_redox_name.selectedIndex==correct_right_redox_i){
+        this_time_correct_answers+=1;
+    }else{
+        correct_answer_string+=(html_input_right_redox_name.options[0].value)+(": ")+(html_input_right_redox_name.options[correct_right_redox_i].value)+("<br />");
+        your_answer_string+=(html_input_right_redox_name.options[0].value)+(": ")+(html_input_right_redox_name.value)+("<br />");
+    }
+    //(weight=0.1*2)
     if(html_input_electron_flow.selectedIndex==correct_electron_flow_i){
-        this_time_correct_answers+=2;
+        this_time_correct_answers+=1;
     }else{
         correct_answer_string+=(html_input_electron_flow.options[0].value)+(": ")+(html_input_electron_flow.options[correct_electron_flow_i].value)+("<br />");
         your_answer_string+=(html_input_electron_flow.options[0].value)+(": ")+(html_input_electron_flow.value)+("<br />");
     }
     if(html_input_voltmeter.selectedIndex==correct_voltmeter_i){
-        this_time_correct_answers+=2;
+        this_time_correct_answers+=1;
     }else{
         correct_answer_string+=(html_input_voltmeter.options[0].value)+(": ")+(html_input_voltmeter.options[correct_voltmeter_i].value)+("<br />");
         your_answer_string+=(html_input_voltmeter.options[0].value)+(": ")+(html_input_voltmeter.value)+("<br />");
@@ -288,11 +310,11 @@ function question(){
 
         do{
             x=Math.floor(Math.random()*available_anion);
-        }while(ischosen_anion[x]);
+        }while(ischosen_anion[x]||(cation_formula[chosen_cation[i]]=="Ag +"&&anion_formula[x]=="Cl -"));
         chosen_anion[i] = x;
         ischosen_anion[x]=true;
     }
-    
+
     html_question_a.innerHTML = "LEFT METAL: " + ecs[chosen_cation[0]]
     + " (s)";
     html_question_b.innerHTML = "RIGHT METAL: " + ecs[chosen_cation[2]]
@@ -319,7 +341,9 @@ function question(){
     current_progress ++;
 
     html_input_left_name.selectedIndex = 0;
+    html_input_left_redox_name.selectedIndex = 0;
     html_input_right_name.selectedIndex = 0;
+    html_input_right_redox_name.selectedIndex = 0;
     html_input_electron_flow.selectedIndex = 0;
     html_input_voltmeter.selectedIndex = 0;
     html_input_left_to_salt_bridge.selectedIndex = 0;

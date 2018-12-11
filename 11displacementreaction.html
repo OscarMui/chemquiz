@@ -1,1 +1,79 @@
-Coming soon...
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="js/11displacementreaction.js" ></script>
+    <title>Ch11 Displacement Reaction</title>
+    
+    <link rel="shortcut icon" type="image/png" href="res/htmlicon.png"/>
+    
+    <meta charset="UTF-8" />
+    <meta name="copyright" content="&copy; 2018 Oscar Mui" />
+
+    <meta name="viewport" content="width=320, initial-scale=1" />
+    <link rel="stylesheet" href="css/all.css" media="only screen and (min-device-width:481px)"/>
+    <link rel="stylesheet" href="css/all_mobile.css" media="screen and (max-device-width:480px)"/>
+    <link rel="stylesheet" href="css/auto_quiz.css" media="only screen and (min-device-width:481px)"/>
+    <link rel="stylesheet" href="css/auto_quiz_mobile.css" media="screen and (max-device-width:480px)"/>
+    
+    <style>
+        body{
+            background-color:#9FF;
+        }
+        a{
+            color:#0000FF;
+            text-decoration: none;
+        }
+        #top_div{
+            background-color:#555;
+            color:#FFF;
+        }
+        #status_div{
+            background-color:#555;
+            color:#FFF;
+        }
+        table{
+            table-layout: fixed;
+        }
+        #group_input1 input,p{
+            display: inline-block;
+        }
+        #group_input2 input,p{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body onload="start()">
+    <a href="index.html">Back to homepage</a>
+
+    <div id="top_div">
+        <h4 id="html_score">Score: </h4>
+        <h4 id="html_iscorrect">Quiz starts!</h4>
+        <h4 style="color:#FF6">Pay attention: This quiz is relatively new, errors may occur and the answers may not be accurate. Contact me if you spot a mistake.</h4>
+    </div>
+
+    <h3 id="html_question"></h3>
+    <div id="group_input1"><p>Displacement reaction &nbsp;</p><select id="html_input1"><option>occurs</option><option>does not occur</option></select><p>&nbsp;.</p></div>
+    <button id="html_next" onclick="next()">next</button>
+    
+    <div id="status_div">
+        <table>
+            <tr >
+                <td>Question:</td>
+                <td  colspan="3" id="html_table_question"></td>
+            </tr><tr >
+                <td>Correct Answer:</td>
+                <td  colspan="3" id="html_correct"></td>
+            </tr><tr >
+                <td>Your Answer:</td>
+                <td  colspan="3" id="html_your"></td>
+            </tr>
+        </table>
+        <h5>Instructions: Decide whether displacement reaction occurs in the following situation.</h5>
+        <h5>e.g. Question: 1 --> Answer: Hydrogen,H</h5>
+    </div>
+
+</body>
+</html>
+
+
+
